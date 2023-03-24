@@ -9,7 +9,7 @@
 
 [GLEW](http://glew.sourceforge.net/)
 
-[glm](https://glm.g-truc.net/0.9.9/index.html)
+[GLM](https://glm.g-truc.net/0.9.9/index.html)
 
 
 ## Getting Started
