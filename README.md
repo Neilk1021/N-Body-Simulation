@@ -4,9 +4,13 @@
 ## Prerequisites
 
 [OpenGL](https://www.opengl.org/)
+
 [GLFW](https://www.glfw.org/)
+
 [GLEW](http://glew.sourceforge.net/)
+
 [glm](https://glm.g-truc.net/0.9.9/index.html)
+
 
 ## Getting Started
 
@@ -20,7 +24,9 @@ git clone https://github.com/Neilk1021/N-Body-Simulation.git
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first
+Pull requests are welcome. 
+
+For major changes, please open an issue first
 to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
