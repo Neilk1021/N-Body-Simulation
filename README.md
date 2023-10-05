@@ -1,5 +1,5 @@
 # N-Body-Simulation
- A simple Gravity Simulation made using OpenGL and C++. developed by Neil Ketteringham
+ A simple Gravity Simulation made using OpenGL and C++. 
  
 ## Prerequisites
 
@@ -11,6 +11,10 @@
 
 [GLM](https://glm.g-truc.net/0.9.9/index.html)
 
+## Info
+* Built using openGL. Includes custom shader compiler to convert .shader files into vertex and fragment shaders
+* Uses basic linear algebra to move individual bodies across the rendered screen.
+* Uses custom vector class to handle forces and speed.
 
 ## Getting Started
 
@@ -20,16 +24,8 @@ git clone https://github.com/Neilk1021/N-Body-Simulation.git
 
 2. Install the prerequisites mentioned above.
 3. Compile and run the code using the following commands.
-4. Click anywhere on the screen to spawn a mass.
-
-## Contributing
-
-Pull requests are welcome. 
-
-For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+4. Right click anywhere on the screen to spawn a mass.
+5. Left click anywhere to drag the camera. 
 
 ## License
 
