@@ -9,8 +9,6 @@
 * Speed-dependent shading on each particle.
 * VAO, VBO, IBO, & Renderer Components
 
-## Program Structre 
-
 ## Prerequisites
 
 [OpenGL](https://www.opengl.org/)
@@ -34,9 +32,12 @@ git clone https://github.com/Neilk1021/N-Body-Simulation.git
 
 2. Install the prerequisites mentioned above.
 3. Compile and run the code using the following commands.
-4. Right click anywhere on the screen to spawn a mass.
-5. Left click anywhere to drag the camera. 
+4. Right-click anywhere on the screen to spawn a mass.
+5. Left-click anywhere to drag the camera. 
 
+## Program Structure 
+* I used a notebook to explain the function and structure of the Graphics Engine if you wish to edit it. 
+![](https://github.com/Neilk1021/N-Body-Simulation/blob/main/how%20everything%20works.pdf)
 ## License
 
 This project is licensed under the MIT License
