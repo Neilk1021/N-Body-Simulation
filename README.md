@@ -1,5 +1,7 @@
 # N-Body-Simulation
  A simple Gravity Simulation made using OpenGL and C++. 
+
+ ![](https://github.com/Neilk1021/N-Body-Simulation/blob/main/ezgif-2-15c9afaf5b.gif)
  
 ## Prerequisites
 
