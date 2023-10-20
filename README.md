@@ -37,7 +37,8 @@ git clone https://github.com/Neilk1021/N-Body-Simulation.git
 
 ## Program Structure 
 * I used a notebook to explain the function and structure of the Graphics Engine if you wish to edit it. 
-[embed]https://github.com/Neilk1021/N-Body-Simulation/blob/main/how%20everything%20works.pdf[/embed]
+https://github.com/Neilk1021/N-Body-Simulation/blob/main/how%20everything%20works.pdf
+
 ## License
 
 This project is licensed under the MIT License
