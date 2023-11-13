@@ -9,8 +9,10 @@
 * VAO, VBO, IBO, & Renderer Components
 
 ## Prerequisites
-To use download the application folder and run "OpenGLTest.exe". 
-Ensure you read the notes on usage before opening. 
+* To use download the application folder and run "OpenGLTest.exe". 
+* Ensure you read the notes on usage before opening.
+
+* Built with:
  
 [OpenGL](https://www.opengl.org/)
 
