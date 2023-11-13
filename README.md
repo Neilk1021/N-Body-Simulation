@@ -12,15 +12,7 @@
 * To use download the application folder and run "OpenGLTest.exe". 
 * Ensure you read the notes on usage before opening.
 
-* Built with:
- 
-[OpenGL](https://www.opengl.org/)
-
-[GLFW](https://www.glfw.org/)
-
-[GLEW](http://glew.sourceforge.net/)
-
-[GLM](https://glm.g-truc.net/0.9.9/index.html)
+* Built with: [OpenGL](https://www.opengl.org/) [GLFW](https://www.glfw.org/) [GLEW](http://glew.sourceforge.net/) [GLM](https://glm.g-truc.net/0.9.9/index.html)
 
 ## Info
 * Built using openGL. Includes custom shader compiler to convert .shader files into vertex and fragment shaders
