@@ -17,6 +17,16 @@ VertexArray * m_va;
 IndexBuffer * m_ib;
 Shader * m_shader;
 RenderPipeline * m_RP;
+bool Clicked = false;
+double StartX;
+double StartY;
+double CurrentOX = 0;
+double CurrentOY = 0;
+
+void windowResize(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
+    glfwSetWindowAspectRatio(window, 16, 9);
+}
 
 void SpawnI(GLFWwindow* window, int button, int action, int mods)
 {
@@ -29,20 +39,54 @@ void SpawnI(GLFWwindow* window, int button, int action, int mods)
     glm::vec2 Pos(0, 0);
     glm::vec2 Vel(XVel, YVel);
 
-    if (button != 0 || action != 0)
+    if (button != 1 || action != 0)
     {
         return;
     }
 
+    int width, height;
+    GLCALL(glfwGetWindowSize(window, &width, &height))
     GLCALL(glfwGetCursorPos(window, &Xpos, &Ypos))
-        Pos.x = -640 + Xpos;
-    Pos.y = 360 - Ypos;   
+
+    double relativeX = (1280 / (double)width);
+    double relativeY = (720 / (double)height);
+
+    std::cout << relativeX << "    " << relativeY << std::endl;
+
+    Pos.x = -640 + (Xpos * relativeX) - CurrentOX;
+    Pos.y = 360 - (Ypos * relativeY) -CurrentOY;
+
 
     std::cout << Xpos << "    " << Ypos << std::endl;
 
     new Mass(Pos, 1000, Vel, *m_va, *m_ib, *m_shader, *m_RP);
 }
 
+void dragView(GLFWwindow* window, double xpos, double ypos)
+{
+    if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE)
+    {
+        Clicked = false;
+        return;
+    }
+
+    if (!Clicked) {
+        StartX = xpos;
+        StartY = ypos;
+        Clicked = true;
+    }
+
+    CurrentOX += (xpos - StartX);
+    CurrentOY += (-ypos + StartY);
+    StartX = xpos;
+    StartY = ypos;
+
+    m_shader->SetUniform4f("u_Cam", CurrentOX, CurrentOY, 0.0f, 0.0f);
+    //glm::mat4 cam = glm::translate(glm::mat4(1.0f), glm::vec3((xpos - StartX), (ypos - StartY), 0.0f));
+    //m_shader->SetUniformMat4f("u_Cam", cam);
+
+    // `write your drag code here`
+}
 
 int main(void)
 {
@@ -76,14 +120,14 @@ int main(void)
 
     float Points[] = {
         //verticies             colormap
-        -4.0f,-4.0f, 0.0f,    1.0f, 0.0f, 0.0f,
-        4.0f, -4.0f, 0.0f,    0.0f, 1.0f, 0.0f,
-        4.0f, 4.0f, 0.0f,     0.0f, 0.0f, 1.0f,
-        -4.0f, 4.0f, 0.0f,    1.0f, 0.0f, 1.0f
+        -4.0f, -4.0f , 0.0f,    1.0f, 0.0f, 0.0f,
+         4.0f, -4.0f , 0.0f,    0.0f, 1.0f, 0.0f,
+         4.0f,  4.0f , 0.0f,    0.0f, 0.0f, 1.0f,
+        -4.0f,  4.0f , 0.0f,    1.0f, 0.0f, 1.0f
     };
 
     unsigned int indicies[] = {
-        0,1,2,
+        2,1,0,
         2,3,0
     };
 
@@ -115,8 +159,9 @@ int main(void)
     shader.Bind();
 
     //uniform color shit
-    shader.SetUniform4f("u_Color", 1.0f, 1.0f, 1.0f, 1.0f);
+    //shader.SetUniform4f("u_Color", 1.0f, 1.0f, 1.0f, 1.0f);
     shader.SetUniformMat4f("u_MVP", mvp);
+    shader.SetUniform4f("u_Cam", 0.0f, 0.0f, 0.0f, 0.0f);
 
     va.Unbind();
     shader.Unbind();
@@ -138,6 +183,8 @@ int main(void)
     m_RP = &RP;
 
     glfwSetMouseButtonCallback(window, &SpawnI);
+    glfwSetCursorPosCallback(window, &dragView);
+    glfwSetWindowSizeCallback(window, &windowResize);
     //Mass m2(P2, 40, V2, va, ib, shader, RP);
     //Mass m4(P3, 80, V3, va, ib, shader, RP);
 

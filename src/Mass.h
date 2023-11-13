@@ -28,6 +28,9 @@ class Mass
 		float GetDistanceSqrd(Mass* Body) const;
 		float GetDisX(Mass* Body) const;
 		float GetDisY(Mass* Body) const;
+		static float VelocityMagNorm(glm::vec2 Speed);
+
+		//should refactor to a hash table
 		static std::vector<Mass*> Bodies;
 
 };

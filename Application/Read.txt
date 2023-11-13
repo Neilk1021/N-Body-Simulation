@@ -1,0 +1,4 @@
+Make sure you have the resource folder in the same folder as the application. It holds the shaders for the simulation. If it is not there the application will crash. 
+
+Thank you for using!
+-Neil K.

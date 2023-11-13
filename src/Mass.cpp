@@ -4,6 +4,18 @@
 
 std::vector<Mass*> Mass::Bodies = {};
 
+float Mass::VelocityMagNorm(glm::vec2 Speed) {
+	float Magnitude = Speed.x * Speed.x + Speed.y * Speed.y;
+	float const MaxSpeed = 2;
+
+	if (Magnitude >= MaxSpeed) {
+		Magnitude = MaxSpeed;
+	}
+
+	return Magnitude / MaxSpeed;
+}
+
+
 void Mass::CalculateAcc()
 {
 	glm::vec2 Acc(0,0);
@@ -49,9 +61,12 @@ void Mass::RenderBody()
 		return;
 	}
 
+	float Speed = Mass::VelocityMagNorm(m_Vel);
+
 	glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(m_Pos.x, m_Pos.y, 0.0f));
 	glm::mat4 mvp = proj * view;
 	m_shader.SetUniformMat4f("u_MVP", mvp);
+	m_shader.SetUniform4f("u_Color", 1 - Speed, Speed, 0.0f, 1.0f);
 	m_RP.Draw(m_va, m_ib, m_shader);
 }
 
