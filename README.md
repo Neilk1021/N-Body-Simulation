@@ -1,7 +1,5 @@
 # N-Body-Simulation
  A simple Gravity Simulation made using OpenGL and C++. 
- To use download the application folder and run "OpenGLTest.exe". 
- Ensure you read the notes on usage before opening. 
  ![](https://github.com/Neilk1021/N-Body-Simulation/blob/main/ezgif-2-15c9afaf5b.gif)
 
 ## Features
@@ -11,7 +9,9 @@
 * VAO, VBO, IBO, & Renderer Components
 
 ## Prerequisites
-
+To use download the application folder and run "OpenGLTest.exe". 
+Ensure you read the notes on usage before opening. 
+ 
 [OpenGL](https://www.opengl.org/)
 
 [GLFW](https://www.glfw.org/)
